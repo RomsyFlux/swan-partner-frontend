@@ -2808,6 +2808,22 @@ fragment MerchantPaymentMethod on MerchantPaymentMethod {
     useSwanSepaCreditorIdentifier
   }
 }
+fragment MerchantPayments on MerchantPaymentEdge {
+  node {
+    id
+    label
+    createdAt
+    __typename
+    externalReference
+    statusInfo {
+      status
+    }
+    amount {
+      currency
+      value
+    }
+  }
+}
 
 fragment MerchantProfile on MerchantProfile {
   id
@@ -2829,6 +2845,11 @@ fragment MerchantProfile on MerchantProfile {
   productType
   statusInfo {
     status
+  }
+  merchantPayments {
+    edges {
+      ...MerchantPayments
+    }
   }
   merchantPaymentMethods {
     ...MerchantPaymentMethod
