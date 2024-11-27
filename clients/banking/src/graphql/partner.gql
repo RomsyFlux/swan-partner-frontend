@@ -2340,7 +2340,7 @@ fragment MerchantPaymentsConnection on MerchantPaymentConnection {
 
 query MerchantPayments(
   $merchantProfileId: ID!
-  # $filters: MerchantPaymentFiltersInput!
+  $filters: MerchantPaymentFiltersInput!
   $first: Int!
   $after: String
 ) {
@@ -2349,7 +2349,7 @@ query MerchantPayments(
     merchantLogoUrl
     merchantName
     id
-    merchantPayments(first: $first, after: $after) {
+    merchantPayments(filters: $filters, first: $first, after: $after) {
       ...MerchantPaymentsConnection
     }
     merchantPaymentMethods {
