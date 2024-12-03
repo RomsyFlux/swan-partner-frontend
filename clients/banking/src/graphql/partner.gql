@@ -2345,10 +2345,13 @@ query MerchantPayments(
   $after: String
 ) {
   merchantProfile(id: $merchantProfileId) {
+    id
+    statusInfo {
+      status
+    }
     accentColor
     merchantLogoUrl
     merchantName
-    id
     merchantPayments(filters: $filters, first: $first, after: $after) {
       ...MerchantPaymentsConnection
     }
