@@ -2274,8 +2274,13 @@ fragment MerchantPayment on MerchantPayment {
     currency
     value
   }
-  paymentMethodId
-  merchantProfileId
+  paymentMethod {
+    id
+    type
+  }
+  merchantProfile {
+    id
+  }
   balance {
     totalAuthorized {
       currency
@@ -2302,8 +2307,9 @@ fragment MerchantPayment on MerchantPayment {
       value
     }
   }
-  paymentLinkId
-  id
+  paymentLink {
+    id
+  }
   reference
   threeDS {
     requested
